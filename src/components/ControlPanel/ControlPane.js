@@ -65,7 +65,7 @@ export default class ControlPane extends Component {
     }
 
     return (
-      <div>
+      <div style={{ height: '400%' }}>
         {
           fields.map((field) => {
             if (isHidden(field)) {

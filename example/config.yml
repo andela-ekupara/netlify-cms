@@ -14,6 +14,9 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Title", name: "title", widget: "string", tagname: "h1"}
       - {label: "Cover Image", name: "image", widget: "image", required: false, tagname: ""}
       - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Body", name: "bodyb", widget: "markdown"}
+      - {label: "Body", name: "bodyc", widget: "markdown"}
+      - {label: "Body", name: "bodyd", widget: "markdown"}
     meta:
       - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD hh:mma"}
       - {label: "SEO Description", name: "description", widget: "text"}
