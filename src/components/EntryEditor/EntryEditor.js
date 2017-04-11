@@ -52,13 +52,23 @@ class EntryEditor extends Component {
         onCancelEdit,
     } = this.props;
 
+    const {
+      previewVisible,
+    } = this.state;
+
     const controlClassName = `${ styles.controlPane } ${ this.state.showEventBlocker && styles.blocker }`;
     const previewClassName = `${ styles.previewPane } ${ this.state.showEventBlocker && styles.blocker }`;
 
     const collectionPreviewEnabled = collection.getIn(['editor', 'preview'], true);
 
     const togglePreviewButton = (
-      <Button className={styles.previewToggle} onClick={this.handleTogglePreview}>Toggle Preview</Button>
+      <Button
+        className={`${ styles.previewToggle } ${ previewVisible ? '' : styles.previewToggleShow }`}
+        onClick={this.handleTogglePreview}
+        icon={previewVisible ? 'visibility_off' : 'visibility'}
+        floating
+        mini
+      />
     );
 
     const editor = (
