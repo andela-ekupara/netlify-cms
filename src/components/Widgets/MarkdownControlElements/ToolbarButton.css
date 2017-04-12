@@ -1,0 +1,16 @@
+@import "../../UI/theme";
+
+.listItem {
+  display: inline-block;
+}
+
+.button {
+  padding: 6px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.active {
+  background-color: var(--highlightFGAltColor);
+}

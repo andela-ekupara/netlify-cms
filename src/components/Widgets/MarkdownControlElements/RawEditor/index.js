@@ -7,6 +7,7 @@ import registry from '../../../../lib/registry';
 import { createAssetProxy } from '../../../../valueObjects/AssetProxy';
 import Toolbar from '../Toolbar';
 import ToolbarPlugins from '../ToolbarPlugins';
+import RawModeToggle from '../RawModeToggle';
 import { Sticky } from '../../../UI/Sticky/Sticky';
 import styles from './index.css';
 
@@ -320,7 +321,7 @@ export default class RawEditor extends React.Component {
       onDragOver={this.handleDragOver}
       onDrop={this.handleDrop}
     >
-      <Sticky className={styles.editorControlBar} fillContainerWidth={true}>
+      <Sticky className={styles.editorControlBar} fillContainerWidth>
         <Toolbar
           selectionPosition={selectionPosition}
           onH1={this.handleHeader('#')}
@@ -339,6 +340,7 @@ export default class RawEditor extends React.Component {
           onRemoveAsset={onRemoveAsset}
           getAsset={getAsset}
         />
+        <RawModeToggle />
       </Sticky>
       <textarea
         ref={this.handleRef}
