@@ -72,7 +72,7 @@ class EntryEditor extends Component {
     );
 
     const editor = (
-      <StickyContext className={controlClassName}>
+      <StickyContext className={controlClassName} registerListener={fn => this.updateStickyContext = fn}>
         { collectionPreviewEnabled ? togglePreviewButton : null }
         <ControlPane
           collection={collection}
@@ -97,6 +97,7 @@ class EntryEditor extends Component {
             defaultSize="50%"
             onDragStarted={this.handleSplitPaneDragStart}
             onDragFinished={this.handleSplitPaneDragFinished}
+            onChange={this.updateStickyContext}
           >
             <ScrollSyncPane>{editor}</ScrollSyncPane>
             <div className={previewClassName}>
