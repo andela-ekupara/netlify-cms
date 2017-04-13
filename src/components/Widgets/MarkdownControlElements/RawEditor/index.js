@@ -6,8 +6,6 @@ import CaretPosition from 'textarea-caret-position';
 import registry from '../../../../lib/registry';
 import { createAssetProxy } from '../../../../valueObjects/AssetProxy';
 import Toolbar from '../Toolbar';
-import ToolbarPlugins from '../ToolbarPlugins';
-import RawModeToggle from '../RawModeToggle';
 import { Sticky } from '../../../UI/Sticky/Sticky';
 import styles from './index.css';
 
@@ -323,7 +321,6 @@ export default class RawEditor extends React.Component {
     >
       <Sticky className={styles.editorControlBar} fillContainerWidth>
         <Toolbar
-          selectionPosition={selectionPosition}
           onH1={this.handleHeader('#')}
           onH2={this.handleHeader('##')}
           onBold={this.handleBold}
@@ -331,16 +328,12 @@ export default class RawEditor extends React.Component {
           onLink={this.handleLink}
           onToggleMode={this.handleToggle}
           rawMode={rawMode}
-        />
-        <ToolbarPlugins
-          selectionPosition={selectionPosition}
           plugins={plugins}
           onPlugin={this.handlePlugin}
           onAddAsset={onAddAsset}
           onRemoveAsset={onRemoveAsset}
           getAsset={getAsset}
         />
-        <RawModeToggle />
       </Sticky>
       <textarea
         ref={this.handleRef}

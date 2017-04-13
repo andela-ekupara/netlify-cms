@@ -16,7 +16,6 @@ import { createAssetProxy } from '../../../../valueObjects/AssetProxy';
 import { buildKeymap } from './keymap';
 import createMarkdownParser from './parser';
 import Toolbar from '../Toolbar';
-import ToolbarPlugins from '../ToolbarPlugins';
 import { Sticky } from '../../../UI/Sticky/Sticky';
 import styles from './index.css';
 
@@ -276,18 +275,14 @@ export default class Editor extends Component {
       onDragOver={this.handleDragOver}
       onDrop={this.handleDrop}
     >
-      <Sticky className={styles.editorControlBar} fillContainerWidth={true}>
+      <Sticky className={styles.editorControlBar} fillContainerWidth>
         <Toolbar
-          selectionPosition={selectionPosition}
           onH1={this.handleHeader(1)}
           onH2={this.handleHeader(2)}
           onBold={this.handleBold}
           onItalic={this.handleItalic}
           onLink={this.handleLink}
           onToggleMode={this.handleToggle}
-        />
-        <ToolbarPlugins
-          selectionPosition={selectionPosition}
           plugins={plugins}
           onPlugin={this.handlePlugin}
           onAddAsset={onAddAsset}

@@ -1,13 +1,20 @@
 import { Map } from 'immutable';
-import { SWITCH_VISUAL_MODE } from '../actions/editor';
+import { OPEN_PLUGIN_FORM, CLOSE_PLUGIN_FORM } from '../actions/editor';
 
-const editor = (state = Map({ useVisualMode: true }), action) => {
+export const getOpenPlugin = state => state.get('openPlugin');
+
+const defaultState = Map({
+  openPlugin: null,
+  pluginData: Map(),
+});
+
+export default editor = (state = defaultState, action) => {
   switch (action.type) {
-    case SWITCH_VISUAL_MODE:
-      return state.setIn(['useVisualMode'], action.payload);
+    case OPEN_PLUGIN_FORM:
+      return state.merge({ openPlugin: action.payload.plugin, pluginData: Map() });
+    case CLOSE_PLUGIN_FORM:
+      return state.set('openPlugin', null);
     default:
       return state;
   }
 };
-
-export default editor;
